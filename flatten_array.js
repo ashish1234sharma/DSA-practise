@@ -1,10 +1,17 @@
 
+var arr=[1,[2,3],4,[5,6],7,8,9]
 
+function Flatten(arr){
+     
+    let flatArray=[]
+    arr.forEach(element => {
+        if(Array.isArray(element)){
+            flatArray=flatArray.concat(Flatten(element))
 
-const merge =(prop=([1,2],[1,3],[1,4])) =>{
-
-    let newarr = 
-        
+        }else{
+            flatArray.push(element)
+        }
+    });
+    return flatArray
 }
-  
-// [1,2,1,3,1,4]
+console.log(Flatten(arr))
